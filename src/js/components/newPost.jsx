@@ -6,14 +6,14 @@ export const NewPost = () => {
         title: '',
         body: '',
         userId: 99
-    })
-    const [error, setError] = useState()
+    });
+    const [error, setError] = useState();
 
 
 
     const handleChange = e => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
-    }
+    };
 
     const handleSubmit = async (e) => {
         try {
@@ -29,11 +29,11 @@ export const NewPost = () => {
                 body: JSON.stringify(formData)
             });
             const data = await resp.json();
-            console.log(data)
+            console.log(data);
 
 
         } catch (error) {
-            setError(error.message)
+            setError(error.message);
         }
     }
 

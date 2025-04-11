@@ -18,10 +18,8 @@ const Home = () => {
 			</div>
 			<div>
 				<p>fetch porfuncion asyncrona en esta!</p>
-				
 			</div>
-
-		<JSONPlaceHolder/>
+			<JSONPlaceHolder />
 
 		</div>
 	);

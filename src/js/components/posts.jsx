@@ -2,45 +2,45 @@ import React, { useEffect, useState } from "react";
 
 
 export const Posts = (props) => {
-    const [postInfo, setPostInfo] = useState(props)
-    const [isEditing, setIsEditing] = useState(false)
-    const [bg, setBg] = useState()
+    const [postInfo, setPostInfo] = useState(props);
+    const [isEditing, setIsEditing] = useState(false);
+    const [bg, setBg] = useState();
 
 
     useEffect(()=>{
-        console.log('valor de is editing --> ', isEditing)
-        if (isEditing) return setBg('bg-success')
-        setBg('')
+        console.log('valor de is editing --> ', isEditing);
+        if (isEditing) return setBg('bg-success');
+        setBg('');
     },[isEditing])
    
     useEffect(()=>{
-        console.log('info cargada')
+        console.log('info cargada');
     },[postInfo])
 
     const handleChange = e => {
-        setPostInfo({ ...postInfo, [e.target.name]: e.target.value })
+        setPostInfo({ ...postInfo, [e.target.name]: e.target.value });
     }
 
     const handleClick = () => {
-        setIsEditing(!isEditing)
+        setIsEditing(!isEditing);
     }
 
     const handleEdit = async (id) => {
         try {
-            const payload = { ...postInfo }
-            delete payload.pid
+            const payload = { ...postInfo };
+            delete payload.pid;
             const resp = await fetch('https://jsonplaceholder.typicode.com/posts/' + id, {
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(payload)
-            })
-            if (!resp.ok) throw new Error('error updating ' + id)
-            const data = await resp.json()
-            setIsEditing(!isEditing)
+            });
+            if (!resp.ok) throw new Error('error updating ' + id);
+            const data = await resp.json();
+            setIsEditing(!isEditing);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 
@@ -48,9 +48,9 @@ export const Posts = (props) => {
         try {
             const resp = await fetch('https://jsonplaceholder.typicode.com/posts/' + id, {
                 method: "DELETE",
-            })
-            if (!resp.ok) throw new Error('error updating ' + id)
-            console.log('eliminado ' + id)
+            });
+            if (!resp.ok) throw new Error('error updating ' + id);
+            console.log('eliminado ' + id);
         } catch (error) {
             console.log(error);
 

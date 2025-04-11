@@ -10,8 +10,8 @@ export const JSONPlaceHolder = () => {
     useEffect(() => {
         //aqui pedido
         //loadPostsPromesas()
-        loadPostsAsync()
-    }, [])
+        loadPostsAsync();
+    }, []);
 
 
     const loadPostsPromesas = () => {
@@ -21,7 +21,7 @@ export const JSONPlaceHolder = () => {
                 return resp.json()
             })
             .then(data => setPosts(data))
-            .catch(err => console.log(err)) // fetch por promesas
+            .catch(err => console.log(err)); // fetch por promesas
     }
 
 
@@ -33,7 +33,7 @@ export const JSONPlaceHolder = () => {
             const data = await resp.json();
             setPosts(data);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 
