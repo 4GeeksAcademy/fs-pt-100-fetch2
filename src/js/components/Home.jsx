@@ -2,25 +2,27 @@ import React from "react";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
+import { JSONPlaceHolder } from "./jsonPlaceHolder.jsx";
 
 //create your first component
 const Home = () => {
 	return (
 		<div className="text-center">
-            
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+			<div className="bg-success">
+				<h3>MAS FETCH!</h3>
+			</div>
+			<div>
+				<p>fetch por promesas en clase anterior</p>
+				<p>fetch().then().then().catch()</p>
+			</div>
+			<div>
+				<p>fetch porfuncion asyncrona en esta!</p>
+				
+			</div>
+
+		<JSONPlaceHolder/>
+
 		</div>
 	);
 };
